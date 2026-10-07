@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#0b0d12">
+
+  <title>Axtrix-cdx V0.1 Beta</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- MENÚ LATERAL -->
+    <aside id="sidebar" class="sidebar">
+
+      <div class="sidebar-top">
+        <div class="brand-small">
+          <div class="brand-logo">A</div>
+
+          <div>
+            <strong>Axtrix-cdx</strong>
+            <span>V0.1 Beta</span>
+          </div>
+        </div>
+
+        <button
+          id="closeMenuBtn"
+          class="icon-btn"
+          type="button"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+      </div>
+
+      <button
+        id="newChatBtn"
+        class="new-chat-btn"
+        type="button"
+      >
+        <span>＋</span>
+        Nuevo chat
+      </button>
+
+      <div class="sidebar-section">
+
+        <div class="section-title">
+          Conversaciones
+        </div>
+
+        <div id="chatHistory" class="chat-history">
+          <!-- Las conversaciones aparecerán aquí -->
+        </div>
+
+      </div>
+
+      <div class="sidebar-section tools-section">
+
+        <div class="section-title">
+          Herramientas
+        </div>
+
+        <button
+          class="tool-btn"
+          type="button"
+          data-prompt="Ayúdame a crear un juego para Roblox."
+        >
+          🎮 Roblox
+        </button>
+
+        <button
+          class="tool-btn"
+          type="button"
+          data-prompt="Ayúdame a crear un mod para Minecraft."
+        >
+          ⛏️ Minecraft
+        </button>
+
+        <button
+          class="tool-btn"
+          type="button"
+          data-prompt="Ayúdame con un script o código en Lua/Luau."
+        >
+          💻 Script / Lua
+        </button>
+
+        <button
+          class="tool-btn"
+          type="button"
+          data-prompt="Ayúdame con mis estudios, tareas o preparación para un examen."
+        >
+          📚 Estudios
+        </button>
+
+      </div>
+
+      <div class="sidebar-bottom">
+        <span>Axtrix-cdx</span>
+        <small>V0.1 Beta</small>
+      </div>
+
+    </aside>
+
+    <!-- FONDO DEL MENÚ EN MÓVIL -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+
+      <!-- BARRA SUPERIOR -->
+      <header class="topbar">
+
+        <button
+          id="openMenuBtn"
+          class="icon-btn"
+          type="button"
+          aria-label="Abrir menú"
+        >
+          ☰
+        </button>
+
+        <div class="topbar-brand">
+
+          <div class="brand-logo small">
+            A
+          </div>
+
+          <div>
+            <strong>Axtrix-cdx</strong>
+            <span>V0.1 Beta</span>
+          </div>
+
+        </div>
+
+        <button
+          id="clearChatBtn"
+          class="icon-btn"
+          type="button"
+          aria-label="Limpiar chat"
+          title="Limpiar chat"
+        >
+          ⋮
+        </button>
+
+      </header>
+
+      <!-- ÁREA DEL CHAT -->
+      <section
+        id="chatArea"
+        class="chat-area"
+        aria-live="polite"
+      >
+
+        <!-- BIENVENIDA -->
+        <div id="welcome" class="welcome">
+
+          <div class="welcome-logo">
+            A
+          </div>
+
+          <h1>Hola, soy Axtrix-cdx</h1>
+
+          <p>
+            Un asistente de IA creado para ayudarte a crear,
+            programar y aprender.
+          </p>
+
+          <div class="welcome-options">
+
+            <button
+              class="welcome-card"
+              type="button"
+              data-prompt="Ayúdame a crear un juego para Roblox."
+            >
+              <strong>🎮 Roblox</strong>
+              <span>Crear juegos y scripts</span>
+            </button>
+
+            <button
+              class="welcome-card"
+              type="button"
+              data-prompt="Ayúdame a crear un mod para Minecraft."
+            >
+              <strong>⛏️ Minecraft</strong>
+              <span>Mods, comandos y contenido</span>
+            </button>
+
+            <button
+              class="welcome-card"
+              type="button"
+              data-prompt="Ayúdame con un script o código en Lua/Luau."
+            >
+              <strong>💻 Script / Lua</strong>
+              <span>Programación y código</span>
+            </button>
+
+            <button
+              class="welcome-card"
+              type="button"
+              data-prompt="Ayúdame con mis estudios."
+            >
+              <strong>📚 Estudios</strong>
+              <span>Tareas y preparación</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- COMPOSITOR -->
+      <div class="composer-area">
+
+        <div class="composer">
+
+          <button
+            id="attachBtn"
+            class="composer-btn"
+            type="button"
+            aria-label="Más opciones"
+          >
+            ＋
+          </button>
+
+          <textarea
+            id="messageInput"
+            rows="1"
+            maxlength="4000"
+            placeholder="Escribe un mensaje a Axtrix-cdx..."
+            aria-label="Mensaje"
+          ></textarea>
+
+          <button
+            id="micBtn"
+            class="composer-btn"
+            type="button"
+            aria-label="Dictar mensaje"
+          >
+            🎙
+          </button>
+
+          <button
+            id="sendBtn"
+            class="send-btn"
+            type="button"
+            aria-label="Enviar mensaje"
+          >
+            ↑
+          </button>
+
+        </div>
+
+        <div class="composer-note">
+          Axtrix-cdx V0.1 Beta
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
