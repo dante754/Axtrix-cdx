@@ -1,9 +1,15 @@
 const express = require("express");
+const { GoogleGenAI } = require("@google/genai");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+// Conexión segura: la API key vendrá de una variable de entorno
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY
+});
 
 app.get("/", (req, res) => {
   res.send("Axtrix-cdx está funcionando.");
@@ -19,18 +25,20 @@ app.post("/api/chat", async (req, res) => {
       });
     }
 
-    // Aquí conectaremos el cerebro de Axtrix-cdx
-    // con la IA en el siguiente paso.
+    const response = await ai.models.generateContent({
+      model: process.env.GEMINI_MODEL || "gemini-2.5-flash",
+      contents: message
+    });
 
     res.json({
-      reply: "Axtrix recibió tu mensaje: " + message
+      reply: response.text
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("Error de Axtrix:", error);
 
     res.status(500).json({
-      error: "Error interno de Axtrix-cdx."
+      error: "Axtrix no pudo responder en este momento."
     });
   }
 });
