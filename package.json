@@ -1,0 +1,11 @@
+{
+  "name": "axtrix-cdx",
+  "version": "0.1.0",
+  "description": "Axtrix-cdx V0.1 Beta",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  "dependencies": {
+  "express": "^5.1.0",
+  "@google/genai": "^1.0.0"
+  }
